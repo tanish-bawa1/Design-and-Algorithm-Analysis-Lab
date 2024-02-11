@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-// void mul(*a,*b,*c,x,y,z)
-// {
-//     for(i=0;i<x;i++)
-//     {
-//         for(j=0;j<z;j++)
-//         {
-//             *c[i][j]=0;
-//             for(k=0;k<y;k++)
-//             {
-//                 *c[i][j]=*c[i][j]+*a[i][k]* *b[k][j];
-//             }
-//         }
-//     }
-// }
+int i,j,k;
+void mul(int a[x][y],int b[y][z],int c[x][z],x,y,z)
+{
+    for(i=0;i<x;i++)
+    {
+        for(j=0;j<z;j++)
+        {
+            c[i][j]=0;
+            for(k=0;k<y;k++)
+            {
+                c[i][j]=c[i][j]+a[i][k]*b[k][j];
+            }
+        }
+    }
+}
 int main()
 {
     int x,y,z,a,p,q,i,j,k;
@@ -95,22 +96,8 @@ int main()
             printf("%d  ",arr2[i][j]);
         }
         printf("\n");
-    }    
-    for(i=0;i<x;i++)
-    {
-        for(j=0;j<z;j++)
-        {
-            arr3[i][j]=0;
-            for(k=0;k<y;k++)
-            {
-                arr3[i][j]=arr3[i][j]+arr1[i][k]*arr2[k][j];
-            }
-        }
     }
-    // int *a=&arr1;
-    // int *b=&arr2;
-    // int c=&arr3;
-    // mul(a,b,c,x,y,z);
+    mul(arr1,arr2,arr3,x,y,z);
     printf("Array 3 is\n");
     for(i=0;i<x;i++)
     {
